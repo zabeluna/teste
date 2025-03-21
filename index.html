@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -16,12 +17,13 @@
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         margin: auto;
         width: 350px;
-        position: relative;
+        position: absolute;
         top: 25%;
+        transform: translateX(130%);
       }
 
       input {
-        width: 100%;
+        width: 93%;
         padding: 10px;
         margin-bottom: 15px;
         margin-top: 3px;
@@ -37,6 +39,7 @@
         border: none;
         cursor: pointer;
         border-radius: 5px;
+        margin-top: 15px;
       }
 
       button:hover {
@@ -58,37 +61,41 @@
       <h2>Login</h2>
       <form id="loginForm">
         <label class="form-label" for="name">Usuário</label>
-        <input type="text" id="login" placeholder="Digite seu usuário" />
-        <label class="form-label" for="senha">Senha</label>
-        <input type="text" id="senha" placeholder="Digite sua senha" />
-        <button onclick="" type="button">Entrar</button>
+        <input type="text" id="name" placeholder="Digite seu usuário" required/>
+        <label class="form-label" for="password">Senha</label>
+        <input type="text" id="password" placeholder="Digite sua senha" required/>
+        <button onclick="" type="submit">Entrar</button>
       </form>
     </div>
 
     <script>
       // Lista de usuários
       const users = [
-        { login: "joao_silva", senha: "senha123" },
-        { login: "maria_oliveira", senha: "segredo456" },
-        { login: "pedro_santos", senha: "minhaSenha789" },
-        { login: "ana_costa", senha: "senhaForte!@#" },
-        { login: "lucas_ferreira", senha: "passw0rd987" },
+        { name: "joao_silva", password: "senha123" },
+        { name: "maria_oliveira", password: "segredo456" },
+        { name: "pedro_santos", password: "minhaSenha789" },
+        { name: "ana_costa", password: "senhaForte!@#" },
+        { name: "lucas_ferreira", password: "passw0rd987" },
       ];
 
       // Evento para capturar o envio do formulário
-      document
-        .getElementById("loginForm")
-        .addEventListener("submit", function (event) {
-          var login = document.getElementById("login");
-          let senha = document.getElementById("senha");
+      document.getElementById("loginForm").addEventListener("submit", function (event) {
+        
+          const name = document.getElementById("name").value;
+          const password = document.getElementById("password").value;
 
           // Verificar se o usuário existe no array e a senha está correta
-          const user = users;
+          const user = users.find(user => user.name === name)
+
+          localStorage.setItem('user', JSON.stringify(user))
 
           // Exibir a mensagem de acordo com o resultado
-          if (user) {
+          if (user && user.password === password) {
+            alert("Login bem sucedido!")
           } else {
+            alert("Usuário não encontrado.")
           }
+        
         });
     </script>
   </body>
