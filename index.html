@@ -1,0 +1,95 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #fcfcfc;
+      }
+
+      .container {
+        background-color: #fcfcfc;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        margin: auto;
+        width: 350px;
+        position: relative;
+        top: 25%;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        margin-top: 3px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background: hsl(122, 39%, 49%);
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        background-clip: hsl(123, 40%, 45%);
+      }
+
+      #mensagem {
+        color: red;
+      }
+
+      .form-label {
+        font-size: medium;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label class="form-label" for="name">Usuário</label>
+        <input type="text" id="login" placeholder="Digite seu usuário" />
+        <label class="form-label" for="senha">Senha</label>
+        <input type="text" id="senha" placeholder="Digite sua senha" />
+        <button onclick="" type="button">Entrar</button>
+      </form>
+    </div>
+
+    <script>
+      // Lista de usuários
+      const users = [
+        { login: "joao_silva", senha: "senha123" },
+        { login: "maria_oliveira", senha: "segredo456" },
+        { login: "pedro_santos", senha: "minhaSenha789" },
+        { login: "ana_costa", senha: "senhaForte!@#" },
+        { login: "lucas_ferreira", senha: "passw0rd987" },
+      ];
+
+      // Evento para capturar o envio do formulário
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          var login = document.getElementById("login");
+          let senha = document.getElementById("senha");
+
+          // Verificar se o usuário existe no array e a senha está correta
+          const user = users;
+
+          // Exibir a mensagem de acordo com o resultado
+          if (user) {
+          } else {
+          }
+        });
+    </script>
+  </body>
+</html>
