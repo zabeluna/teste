@@ -57,7 +57,7 @@
 
       #togglePassword {
         position: absolute;
-        right: 50px;
+        right: 40px;
         cursor: pointer;
         color: rgb(78, 78, 77);
         top: calc(70% - 20px);
@@ -113,8 +113,6 @@
 
           // Verificar se o usuário existe no array e a senha está correta
           const user = users.find(user => user.name === name)
-
-          localStorage.setItem('user', JSON.stringify(user))
 
           // Exibir a mensagem de acordo com o resultado
           if (user && user.password === userPassword) {
