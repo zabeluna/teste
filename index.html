@@ -40,7 +40,7 @@
         border: none;
         cursor: pointer;
         border-radius: 5px;
-        margin-top: 15px;
+        margin-top: 40px;
       }
 
       button:hover {
@@ -49,6 +49,8 @@
 
       #mensagem {
         color: red;
+        position: fixed;
+        font-size: small;
       }
 
       .form-label {
@@ -56,11 +58,11 @@
       }
 
       #togglePassword {
-        position: absolute;
+        position: fixed;
         right: 40px;
         cursor: pointer;
         color: rgb(78, 78, 77);
-        top: calc(70% - 20px);
+        top: calc(65% - 20px);
 
       }
 
@@ -74,6 +76,7 @@
         <input type="text" id="name" placeholder="Digite seu usuário" required/>
         <label class="form-label" for="password">Senha</label>
         <input type="password" id="password" placeholder="Digite sua senha" required/>
+        <p id="mensagem"></p>
         <i class="fas fa-eye" id="togglePassword" style="cursor: pointer"></i>
         <button type="submit">Entrar</button>
       </form>
@@ -107,18 +110,23 @@
 
       // Evento para capturar o envio do formulário
       document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault();
         
           const name = document.getElementById("name").value;
           const userPassword = document.getElementById("password").value;
+          const mensagem = document.getElementById("mensagem");
+
 
           // Verificar se o usuário existe no array e a senha está correta
           const user = users.find(user => user.name === name)
 
           // Exibir a mensagem de acordo com o resultado
           if (user && user.password === userPassword) {
-            alert("Login bem sucedido!")
+            alert("Login bem sucedido!");
+
           } else {
-            alert("Usuário não encontrado.")
+            mensagem.textContent = "Senha incorreta!";
+            
           }
         
         });
